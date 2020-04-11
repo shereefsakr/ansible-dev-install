@@ -10,8 +10,9 @@
         with_items:
           - nano
           - net-tools
+          - wine
 
-      - name: install dev items
+      - name: install dev items available through apt
         apt: name= {{ item }} 
         with_items:
           - git
@@ -19,11 +20,17 @@
           - python3
           - python3-pip
           - npm
+          - docker
+          - docker.io
 
-        state: present
+      - name: install dev items available through snap
+        snap:
+          name:
+            - scrcpy
+            - intellij-idea-community
+            - code
 
       - name: install entertainment items
         apt: name= {{ item }}
         with_items:
           - vlc
-        state: present
