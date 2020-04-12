@@ -16,6 +16,10 @@
     ## for vscode extension installation, currently not used yet
     - visual_studio_code_extensions_build: stable
   tasks:
+      - name: install needed ppa repositories
+        apt_repository:
+          repo: ppa:danielrichter2007/grub-customizer
+
       - name: update repositories
         apt: update_cache=yes
 
@@ -27,6 +31,7 @@
                 - net-tools
                 - wine-stable
                 - pavucontrol
+                - grub-customizer
             state: present
     
       ## For testing purposes
