@@ -14,23 +14,35 @@
         apt: update_cache=yes
 
       - name: install system tools
-        apt: name= {{ item }} 
+        apt:
+            name:
+                - nano
+                - gedit
+                - net-tools
+                - wine-stable
+                - pavucontrol
+            state: present
+    
+      ## For testing purposes
+      - name: "loop through list from a variable"
+        debug:
+            msg: "An item: {{item}}"
         with_items:
-          - nano
-          - net-tools
-          - wine-stable
-          - pavucontrol
+            - 1
+            - 2
 
       - name: install dev items available through apt
-        apt: name= {{ item }} 
-        with_items:
-          - git
-          - openjdk-11-jdk
-          - python3
-          - python3-pip
-          - npm
-          - docker
-          - docker.io
+        apt:
+            name:
+                - git
+                - openjdk-11-jdk
+                - tomcat9
+                - python3
+                - python3-pip
+                - npm
+                - docker
+                - docker.io
+            state: present
 
       - name: install dev items available through snap
         snap:
@@ -38,11 +50,21 @@
             - scrcpy
             - intellij-idea-community
             - code
+            - discord
+            - zoom-client
 
-      - name: install entertainment items
-        apt: name= {{ item }}
-        with_items:
-          - vlc
+      - name: install entertainment items from apt
+        apt:
+            name:
+                - vlc
+                - openarena
+      
+      - name: install entertainment from snap
+        snap:
+            name:
+            - spotify
+        
+        
       - name: Does the Google apt file exist?
         command: test -f {{chrome_apt_file}}
         register: chrome_apt_exists
