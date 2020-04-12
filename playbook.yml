@@ -1,14 +1,20 @@
 ---
 ## Prerequisite
-## set sudo password using the commmand below before rnning this ansible import_playbook. For example:
-## export ANSIBLE_SUDO_PASS=123456789
+##      set sudo password using the commmand below before rnning this ansible import_playbook. For example:
+##      export ANSIBLE_SUDO_PASS=123456789
+## Future work:
+##      Add support for vscode extensions probably using https://github.com/gantsign/ansible-role-visual-studio-code-extensions
 - hosts: localhost
   ##sudo: True
   become: yes
   vars:
+    ## for chrome installation
     - chrome_apt_file: /etc/apt/sources.list.d/google-chrome.list
+    ## for become plugin
     - ansible_become_exe: sudo
     - ansible_sudo_exe: sudo
+    ## for vscode extension installation, currently not used yet
+    - visual_studio_code_extensions_build: stable
   tasks:
       - name: update repositories
         apt: update_cache=yes
