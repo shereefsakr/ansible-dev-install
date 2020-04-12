@@ -69,6 +69,7 @@
         snap:
             name:
             - spotify
+            - vuze-vs
         
         
       - name: Does the Google apt file exist?
