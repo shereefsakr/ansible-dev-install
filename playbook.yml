@@ -76,6 +76,7 @@
             - code
             - discord
             - zoom-client
+          classic: yes
 
       #- name: install elastic search
       #  roles:
