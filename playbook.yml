@@ -7,6 +7,7 @@
 - hosts: localhost
   ##sudo: True
   become: yes
+
   vars:
     ## for chrome installation
     - chrome_apt_file: /etc/apt/sources.list.d/google-chrome.list
@@ -15,10 +16,20 @@
     - ansible_sudo_exe: sudo
     ## for vscode extension installation, currently not used yet
     - visual_studio_code_extensions_build: stable
+
   tasks:
-      - name: install needed ppa repositories
+      - name: install needed ppa repository
         apt_repository:
           repo: ppa:danielrichter2007/grub-customizer
+
+      #- name: install cassandra apt repository
+      #  apt_repository:
+      #    repo: deb https://downloads.apache.org/cassandra/debian 311x main
+  
+      #- name: Add an Apt signing key for cassandra repository
+      #  apt_key:
+      #    url: https://downloads.apache.org/cassandra/KEYS
+      #    state: present
 
       - name: update repositories
         apt: update_cache=yes
@@ -54,6 +65,7 @@
                 - npm
                 - docker
                 - docker.io
+                #- cassandra
             state: present
 
       - name: install dev items available through snap
@@ -64,6 +76,12 @@
             - code
             - discord
             - zoom-client
+
+      #- name: install elastic search
+      #  roles:
+      #    - role: elastic.elasticsearch
+      #  vars:
+      #    es_version: 7.6.2
 
       - name: install entertainment items from apt
         apt:
