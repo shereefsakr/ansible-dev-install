@@ -19,3 +19,7 @@ to be able to run the ansible script you will have to run the following commands
       export ANSIBLE_SUDO_PASS=123456
 
       ansible-playbook "playbook.yml"
+
+## Status
+
+This ansible script has been tested on **Ubuntu 18.4.4**
