@@ -65,6 +65,7 @@
                 - npm
                 - docker
                 - docker.io
+                - virtualbox
                 #- cassandra
             state: present
 
