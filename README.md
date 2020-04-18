@@ -30,7 +30,7 @@ https://code.visualstudio.com/download
 
 ## Status
 
-This ansible script has been tested on **Ubuntu 18.4.4**
+This ansible script has been tested on **Ubuntu 18.04.4**
 
 
 ## Future Work/Roadmap
