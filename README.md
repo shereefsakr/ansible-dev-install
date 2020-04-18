@@ -35,4 +35,4 @@ This ansible script has been tested on **Ubuntu 18.4.4**
 
 ## Future Work/Roadmap
 
-- [] Add support for installing a few vscode extensions
+- [ ] Add support for installing a few vscode extensions
