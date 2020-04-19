@@ -12,5 +12,8 @@ all:
             hosts:
                 localhost
             vars:
+                ## only in case the target is the same machine
+                ansible_connection: local
+                ## in case the target is a remote machine
                 ansible_user: sampleuser
                 ansible_password: samplepassword

@@ -19,6 +19,7 @@
     ## for become plugin
     - ansible_become_exe: sudo
     - ansible_sudo_exe: sudo
+    - ansible_become: yes
     ## for vscode extension installation, currently not used yet
     - visual_studio_code_extensions_build: stable
 
@@ -27,14 +28,17 @@
         apt_repository:
           repo: ppa:danielrichter2007/grub-customizer
 
-      #- name: install cassandra apt repository
-      #  apt_repository:
-      #    repo: deb https://downloads.apache.org/cassandra/debian 311x main
+      - name: install cassandra apt repository
+        apt_repository:
+          repo: deb https://downloads.apache.org/cassandra/debian 311x main
+          validate_certs: no
+          update_cache: no
+        #become: yes
   
-      #- name: Add an Apt signing key for cassandra repository
-      #  apt_key:
-      #    url: https://downloads.apache.org/cassandra/KEYS
-      #    state: present
+      - name: Add an Apt signing key for cassandra repository
+        apt_key:
+          url: https://downloads.apache.org/cassandra/KEYS
+          state: present
 
       - name: update repositories
         apt: update_cache=yes
@@ -49,6 +53,8 @@
                 - pavucontrol
                 - grub-customizer
                 - gnome-tweaks
+                - samba
+                #- smbfs
             state: present
     
       ## For testing purposes
@@ -64,6 +70,7 @@
             name:
                 - git
                 - openjdk-11-jdk
+                - openjdk-8-jdk
                 - tomcat9
                 - python3
                 - python3-pip
@@ -71,8 +78,13 @@
                 - docker
                 - docker.io
                 - virtualbox
-                #- cassandra
+                - cassandra
             state: present
+
+      - name: correct java version selected as openjdk-8-jdk
+        alternatives:
+          name: java
+          path: /usr/lib/jvm/java-8-openjdk-amd64/jre/bin/java
 
       - name: install dev items available through snap
         snap:
