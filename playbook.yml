@@ -155,9 +155,21 @@
             - tortoisegit
             - openjdk8
             - intellijidea-community
+            - vscode
+            - vscode-ansible
+            - vscode-docker
+            - vscode-java
+            - vscode-java-debug
+            - vscode-java-dependency
+            - vscode-spring-initializr
+            - vscode-maven
             - apache-zookeeper
             - activemq
             - docker-desktop
+            ##- apache-cassandra
+            ## for testing jekyllrb blogging
+            - ruby
+            - jekyll
           state: present
 
       - name: Stop ActiveMQ service and set it to manual
