@@ -73,7 +73,7 @@ to be able to run the ansible script you will have to run the following commands
 
 ## Testing Status
 
-Tested on **Windows 10** and **Ubuntu 18.04.4**
+Tested on **Windows 10 Home** and **Ubuntu 18.04.4**
 
 ## Future Work/Roadmap
 
