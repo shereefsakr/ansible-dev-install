@@ -1,0 +1,16 @@
+all:
+    children:
+        windevmachines:
+            hosts:
+                localhost
+            vars:
+                ansible_user: sampleuser
+                ansible_password: samplepassword
+                ansible_connection: winrm
+                ansible_winrm_server_cert_validation: ignore
+        ubuntudevmachines:
+            hosts:
+                localhost
+            vars:
+                ansible_user: sampleuser
+                ansible_password: samplepassword

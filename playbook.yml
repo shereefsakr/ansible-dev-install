@@ -4,9 +4,18 @@
 ##      export ANSIBLE_SUDO_PASS=123456789
 ## Future work:
 ##      Add support for vscode extensions probably using https://github.com/gantsign/ansible-role-visual-studio-code-extensions
-- hosts: localhost
-  ##sudo: True
-  become: yes
+
+- hosts: all
+  tasks:
+      ## For testing purposes
+      - name: "loop through list from a variable from all test"
+        debug:
+            msg: "An item: {{item}}"
+        with_items:
+            - 1
+            - 2
+
+- hosts: ubuntudevmachines
 
   vars:
     ## for chrome installation
@@ -116,3 +125,80 @@
     
       - name: Install Google Chrome
         apt: pkg=google-chrome-stable state=present
+
+
+- hosts: windevmachines
+  tasks:
+      ## For testing purposes
+      - name: "loop through list from a variable from windevmachines test"
+        debug:
+            msg: "An item: {{item}}"
+        with_items:
+            - 1
+            - 2
+
+      - name: "test we can connect to the machine"
+        win_ping:
+
+      # - name: Install Telnet Client
+      #   win_feature:
+      #     name:
+      #     - Telnet Client
+      #     state: present
+
+      # - name: Install development items from chocolatey
+      #   win_chocolatey:
+      #     name: 
+      #       - 7zip
+      #       - windirstat
+      #       - notepadplusplus
+      #       - mremoteng
+      #       - winmerge
+      #       - pgadmin4
+      #       - git
+      #       - tortoisegit
+      #       - openjdk8
+      #       - intellijidea-community
+      #       - apache-zookeeper
+      #       - activemq
+      #     state: present
+
+      - name: Install postgres database
+        win_chocolatey:
+          name: postgresql11
+          version: 11.5
+          install_args: /Password postgres
+          state: present
+
+      - name: Stop Postgres service and set it to manual
+        win_service:
+          name: postgresql-x64-11
+          start_mode: manual
+          state: stopped
+
+      - name: Install tomcat
+        win_chocolatey:
+          name: tomcat
+          version: 9.0.21
+          state: present
+
+      # - name: Stop Tomcat service and set it to manual
+      #   win_service:
+      #     name: Tomcat9
+      #     start_mode: manual
+      #     state: stopped
+
+      - name: Install apache solr
+        win_chocolatey:
+          name: solr
+          version: 8.1.1
+          state: present
+
+      - name: Install entertainment items from chocolatey
+        win_chocolatey:
+          name: 
+            - vlc
+            - scrcpy
+            - ultravnc
+            #- virtualclonedrive
+          state: present
