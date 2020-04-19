@@ -78,6 +78,7 @@ Tested on **Windows 10** and **Ubuntu 18.04.4**
 ## Future Work/Roadmap
 
 - [ ] Add support for installing a few vscode extensions
+- [ ] Configure DNS by default to Google DNS
 
 
 ## References
