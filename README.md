@@ -1,6 +1,6 @@
-# ansible-ubuntu-dev-install
+# ansible-dev-install
 
-  *Disclaimer: this project is still in the inception phase, and isn't usable yet*
+This project is created with the purpose of preparing an ansible script to fully create the development environment of my need.
 
 ## Optional
 
@@ -11,7 +11,7 @@ https://code.visualstudio.com/download
 ## General Prerequisites
 * In the documentation below, we are considering the case where the server are separated, but usually they would be the same, since script is targetted for setting up a development environment
 
-### Prerequisites for the ansible server (If the server is a Windows 10 installation)
+## Prerequisites for the ansible server (If the server is a Windows 10 installation)
 *Tested on Windows 10 Home*
 * Install Ubuntu 18.04 LTS WSL (Windows Subsystem for Linux) from the Microsoft Store
 * Open Ubuntu WSL
@@ -32,7 +32,7 @@ to be able to run the ansible script you will have to run the following commands
       sudo pip3 install ansible
 
 
-### Prerequisites for the ansible target (If the target is a Windows 10 installation)
+## Prerequisites for the ansible target (If the target is a Windows 10 installation)
 * Install [Remote Server Administration Tools for Windows 10](https://www.microsoft.com/en-us/download/details.aspx?id=45520)
 * Open Powershell as administrator
 * Run the following commands:
@@ -52,16 +52,16 @@ to be able to run the ansible script you will have to run the following commands
 * Open Ubuntu WSL
 * Run the following commands
 
-      git clone https://github.com/shereefsakr/ansible-windows-dev-install.git
-      cd ansible-windows-dev-install
+      git clone https://github.com/shereefsakr/ansible-dev-install.git
+      cd ansible-dev-install
       
       ansible-playbook -i hosts.yml "playbook.yml"
 
 ## Running Steps for the ansible target (If the target is an Ubuntu installation)
 * Open the terminal, and run the following commands
 
-      git clone https://github.com/shereefsakr/ansible-ubuntu-dev-install.git
-      cd ./ansible-ubuntu-dev-install
+      git clone https://github.com/shereefsakr/ansible-dev-install.git
+      cd ./ansible-dev-install
       
       ## install elasticsearch role
       ansible-galaxy install elastic.elasticsearch,7.6.2
