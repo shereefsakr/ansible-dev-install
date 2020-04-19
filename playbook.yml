@@ -160,6 +160,12 @@
             - docker-desktop
           state: present
 
+      - name: Stop ActiveMQ service and set it to manual
+        win_service:
+          name: ActiveMQ
+          start_mode: manual
+          state: stopped
+
       - name: Install postgres database
         win_chocolatey:
           name: postgresql11
