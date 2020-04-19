@@ -85,6 +85,16 @@
         alternatives:
           name: java
           path: /usr/lib/jvm/java-8-openjdk-amd64/jre/bin/java
+      
+
+      - name: disable some services autostart and stop them if started
+        systemd:
+          name: "{{ item }}"
+          state: stopped
+          enabled: no
+        with_items:
+          - postgresql
+          - cassandra
 
       - name: install dev items available through snap
         snap:
