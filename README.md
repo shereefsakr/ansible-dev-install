@@ -77,6 +77,8 @@ Tested on **Windows 10** and **Ubuntu 18.04.4**
 
 ## Future Work/Roadmap
 
+Listed [here](https://github.com/shereefsakr/ansible-dev-install/issues?q=is%3Aissue+is%3Aopen+label%3A%22roadmap%22)
+
 - [ ] Add support for installing a few vscode extensions
 - [ ] Configure DNS by default to Google DNS
 
