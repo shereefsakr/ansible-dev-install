@@ -1,9 +1,5 @@
 ---
-## Prerequisite
-##      set sudo password using the commmand below before rnning this ansible import_playbook. For example:
-##      export ANSIBLE_SUDO_PASS=123456789
-## Future work:
-##      Add support for vscode extensions probably using https://github.com/gantsign/ansible-role-visual-studio-code-extensions
+## Documentation on how to run the script exists here https://github.com/shereefsakr/ansible-dev-install
 
 - hosts: all
   tasks:
@@ -146,28 +142,29 @@
       #     - Telnet Client
       #     state: present
 
-      # - name: Install development items from chocolatey
-      #   win_chocolatey:
-      #     name: 
-      #       - 7zip
-      #       - windirstat
-      #       - notepadplusplus
-      #       - mremoteng
-      #       - winmerge
-      #       - pgadmin4
-      #       - git
-      #       - tortoisegit
-      #       - openjdk8
-      #       - intellijidea-community
-      #       - apache-zookeeper
-      #       - activemq
-      #     state: present
+      - name: Install development items from chocolatey
+        win_chocolatey:
+          name: 
+            - 7zip
+            - windirstat
+            - notepadplusplus
+            - mremoteng
+            - winmerge
+            - pgadmin4
+            - git
+            - tortoisegit
+            - openjdk8
+            - intellijidea-community
+            - apache-zookeeper
+            - activemq
+            - docker-desktop
+          state: present
 
       - name: Install postgres database
         win_chocolatey:
           name: postgresql11
           version: 11.5
-          install_args: /Password postgres
+          ##install_args: /Password:postgres
           state: present
 
       - name: Stop Postgres service and set it to manual
@@ -198,7 +195,10 @@
         win_chocolatey:
           name: 
             - vlc
+            - spotify
+            - itunes
+            - kodi
             - scrcpy
             - ultravnc
-            #- virtualclonedrive
+            - virtualclonedrive
           state: present
