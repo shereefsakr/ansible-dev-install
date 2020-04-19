@@ -28,8 +28,11 @@ https://code.visualstudio.com/download
 
 to be able to run the ansible script you will have to run the following commands as prerequisites first
 
-      sudo apt-get install python3 python3-pip git sshpass
+      sudo apt-get install python3 python3-pip git
       sudo pip3 install ansible
+      
+      ## Only if you are going to target a remote machine
+      sudo apt-get install sshpass
 
 
 ## Prerequisites for the ansible target (If the target is a Windows 10 installation)
@@ -46,6 +49,14 @@ to be able to run the ansible script you will have to run the following commands
 * Test the **hosts.yml** works successfully, by executing the following command
 
       ansible windevmachines -i hosts.yml -m win_ping
+      
+      
+## Prerequisites for the ansible target (If the target is an Ubuntu installation)
+*Tested on Ubuntu 18.04.4 LTS*
+
+* Run the following commands in case the target is not the same as the server machine
+
+      sudo apt-get install sshpass
 
 ## Running Steps for the ansible target (If the target is a Windows 10 installation)
 
