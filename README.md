@@ -56,7 +56,7 @@ to be able to run the ansible script you will have to run the following commands
 
 * Run the following commands in case the target is not the same as the server machine
 
-      sudo apt-get install sshpass
+      sudo apt-get install openssh-server
 
 ## Running Steps for the ansible target (If the target is a Windows 10 installation)
 
