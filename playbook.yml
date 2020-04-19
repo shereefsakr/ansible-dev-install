@@ -202,7 +202,7 @@
           name: 
             - vlc
             - spotify
-            - itunes
+            ##- itunes
             - kodi
             - scrcpy
             - ultravnc
