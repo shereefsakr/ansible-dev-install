@@ -42,8 +42,8 @@ to be able to run the ansible script you will have to run the following commands
 
 * Download the following script and run it in Powershell as administrator [ConfigureRemotingForAnsible.ps1](https://raw.githubusercontent.com/ansible/ansible/devel/examples/scripts/ConfigureRemotingForAnsible.ps1)
 
-* Configure the inventory hosts, a sample exists in **hosts_sample.yml** file
-* Test the **host.yml** works successfully, by executing the following command
+* Configure the inventory hosts, a sample exists in **hosts_sample.yml** file, and copy it to **hosts.yml**
+* Test the **hosts.yml** works successfully, by executing the following command
 
       ansible windevmachines -i hosts.yml -m win_ping
 
@@ -73,8 +73,7 @@ to be able to run the ansible script you will have to run the following commands
 
 ## Testing Status
 
-Intended to be tested on **Windows 10** and **Ubuntu 18.04.4**
-
+Tested on **Windows 10** and **Ubuntu 18.04.4**
 
 ## Future Work/Roadmap
 
