@@ -28,7 +28,7 @@ https://code.visualstudio.com/download
 
 to be able to run the ansible script you will have to run the following commands as prerequisites first
 
-      sudo apt-get install python3 python3-pip git
+      sudo apt-get install python3 python3-pip git sshpass
       sudo pip3 install ansible
 
 
