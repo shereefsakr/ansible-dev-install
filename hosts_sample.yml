@@ -8,6 +8,8 @@ all:
                 ansible_password: samplepassword
                 ansible_connection: winrm
                 ansible_winrm_server_cert_validation: ignore
+                ## in case the machine was connected to an Active Directory aci_aep_to_domain
+                ansible_winrm_transport: credssp
         ubuntudevmachines:
             hosts:
                 localhost
