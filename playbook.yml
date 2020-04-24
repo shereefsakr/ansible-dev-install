@@ -170,7 +170,7 @@
             - 7zip
             - windirstat
             - notepadplusplus
-            - mremoteng
+            ##- mremoteng
             - winmerge
             - pgadmin4
             - git
@@ -189,6 +189,9 @@
             - activemq
             - docker-desktop
             - tableau-desktop
+            - kubernetes-cli
+            - kubernetes-helm
+            - minikube
             ##- apache-cassandra
             ## for testing jekyllrb blogging
             - ruby
@@ -204,7 +207,7 @@
       - name: Install postgres database
         win_chocolatey:
           name: postgresql11
-          version: 11.5
+          ##version: 11.5
           ##install_args: /Password:postgres
           state: present
 
