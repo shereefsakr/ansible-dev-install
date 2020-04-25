@@ -176,6 +176,7 @@
             - git
             - tortoisegit
             - openjdk8
+            - maven
             - intellijidea-community
             - vscode
             - vscode-ansible
