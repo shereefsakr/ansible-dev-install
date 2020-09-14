@@ -21,7 +21,8 @@ https://code.visualstudio.com/download
       sudo apt-get install python3 git
       sudo apt-get install python3-pip --fix-missing
       sudo pip3 install ansible
-      pip install pywinrm
+      pip3 install pywinrm
+      pip3 install pywinrm[credssp]
       
 ## Prerequisites for the ansible server (If the server is an Ubuntu installation)
 *Tested on Ubuntu 18.04.4 LTS*
@@ -44,6 +45,24 @@ to be able to run the ansible script you will have to run the following commands
       Set-ExecutionPolicy RemoteSigned
 
 * Download the following script and run it in Powershell as administrator [ConfigureRemotingForAnsible.ps1](https://raw.githubusercontent.com/ansible/ansible/devel/examples/scripts/ConfigureRemotingForAnsible.ps1)
+
+* In case the machine is connected to an Active Directory Domain please execute the following steps:
+   * Open Powershell as adminsitrator, and run the following command:
+
+      winrm get winrm/config/service
+      
+     
+   * Check if CredSSP value is, and if it's false please run the following command
+
+      .\ConfigureRemotingForAnsible.ps1 -EnableCredSSP -DisableBasicAuth -Verbose
+      
+   * Run the following command and check if HTTP Listener exists
+
+      winrm enumerate winrm/config/Listener
+
+   * Run the following command to restart winrm service
+
+      restart-service winrm
 
 * Configure the inventory hosts, a sample exists in **hosts_sample.yml** file, and copy it to **hosts.yml**
 * Test the **hosts.yml** works successfully, by executing the following command

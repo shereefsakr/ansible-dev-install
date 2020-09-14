@@ -191,6 +191,7 @@
             - apache-zookeeper
             - activemq
             - docker-desktop
+            - tableau-desktop
             ##- apache-cassandra
             ## for testing jekyllrb blogging
             - ruby
