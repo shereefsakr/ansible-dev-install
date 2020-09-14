@@ -75,6 +75,9 @@
                 - python3
                 - python3-pip
                 - npm
+                #- docker-ce
+                #- docker-ce-cli
+                #- containerd.io
                 - docker
                 - docker.io
                 - virtualbox
